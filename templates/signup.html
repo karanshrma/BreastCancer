@@ -1,0 +1,39 @@
+{% include "base.html" %}
+  <div class="row" style="padding-top: 150px;">
+    <div class="col-md-3">
+      
+    </div>
+    <div class="col-md-6" style="padding: 50px;">
+      <h2 align="center">Create Users</h2>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <p>
+      {{ field.label_tag }}<br>
+      {{ field }}
+      {% if field.help_text %}
+        <small style="color: grey">{{ field.help_text }}</small>
+      {% endif %}
+      {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+      {% endfor %}
+    </p>
+  {% endfor %}
+  <button class="btn btn-primary" type="submit">Sign up</button>
+</form>
+
+
+    </div>
+    <div class="col-md-3">
+        {% if alert %}
+  <script type="text/javascript">
+    alert('{{alert}}');
+  </script>
+  {% endif  %}
+
+    </div>
+    
+  </div>
+
+
+{% include "footer.html" %}

@@ -1,0 +1,119 @@
+﻿{% include "base.html" %}
+    {% load static %}
+    <section>
+            <div class="container">
+                <div class="section-header">
+                    <p></p>
+                </div>
+        <!--         <div class="row">
+                    <div class="col-md-2 col-sm-6">
+                        
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="kode-contact-icon">
+                            
+                            <h2> <i class="fa fa-envelope-o"></i>E-mail</h2>
+                            <p><a href="mailto:info@kodeforest.com">info@domain.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="kode-contact-icon">
+                            
+                            <h2> <i class="fa fa-phone"></i>Phone</h2>                            <p>Contact: +1 123-456-7890</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                       
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+
+    	<section style="padding-top: 50px;">
+        	<div class="container">
+            	<div class="row" >
+                                    <form class="d-flex justify-content-center" method="POST">
+            
+                  <div class="col-md-6">
+            {% csrf_token %}
+            <input type="search" name="check" placeholder="Search your query"  class="form-control">
+            
+                  </div>
+                  <div class="col-md-6">
+                    <button class="btn btn-default btn-sm my-0 p" type="submit">
+              <i class="fas fa-search" style="font-size: 20px;"></i>
+            </button>
+                    
+                  </div>
+          </form>
+         
+                	<div class="col-md-12 col-sm-12" style="padding-top: 50px;">
+                    	<div >
+                                <table class="table table-striped">
+      <tbody>
+              
+        <tr>
+          <th>Sr. No.</th>
+          <th>Username</th>
+          <th>Position</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Delete</th>
+        </tr>
+          {% for n in data %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{n.username1}}</td>
+          <td>{{n.Ocuupation}}</td>
+          <td>{{n.Gender}}</td>
+          <td>{{n.email}}</td>
+        <td >
+          <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="user123" value="{{n.username1}}">
+          <button style="border-style: none;background-color: transparent;"><i  class="fa fa-times" style="font-size: 50px;color: red;" aria-hidden="true"></i>
+</button>
+</form>
+
+          </td>         
+        </tr>
+
+          {% endfor %}
+      </tbody>
+      
+    </table>
+
+
+                        	
+                        </div>
+                    </div>
+              
+                </div>
+            </div>
+        </section>
+   
+    <div class="copyrights">
+    	<div class="container" align="Center">
+        	<p>©2020 Breast cancer</p>
+            </div>
+    </div>
+    <!--COPYRIGHTS END-->
+</div>
+<!--WRAPPER END-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js\jquery.min.js' %}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="	{% static 'js\bootstrap.min.js' %}"></script>
+<script src="	{% static 'js\jquery.bxslider.min.js' %}"></script>
+<script src="	{% static 'js\bootstrap-slider.js' %}"></script>
+<script src="	{% static 'js\waypoints.min.js' %}"></script> 
+<script src="	{% static 'js\jquery.counterup.min.js' %}"></script> 
+<script src="	{% static 'js\owl.carousel.js' %}"></script>
+<script src="	{% static 'js\bg-moving.js' %}"></script> 
+<script src="	{% static 'js\dl-menu\modernizr.custom.js' %}"></script> 
+<script src="	{% static 'js\dl-menu\jquery.dlmenu.js' %}"></script> 
+<script src="	{% static 'js\functions.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% include "base.html" %}
+<div class="row" style="padding-top:150px;">
+	<div class="col-md-4">
+		
+	</div>
+	<div class="col-md-4" style="padding: 50px;">
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+
+  {% if form.non_field_errors %}
+    <ul class='form-errors'>
+        {% for error in form.non_field_errors %}
+        <script type="text/javascript">
+        	alert('Users Regisertration is canceled or you might not have Register yet')
+        </script>
+        {% endfor %}
+    </ul>
+{% endif %}
+  {{ form.as_p }}
+  <br>
+  <button class="btn btn-primary" type="submit">Log In</button>
+</form>
+		
+	</div>
+	<div class="col-md-4">
+		
+	</div>
+	
+</div>
+
+{% include "footer.html" %}

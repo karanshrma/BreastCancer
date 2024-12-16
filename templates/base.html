@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Breast Cancer</title>
+<!-- CUSTOM STYLE -->
+<link href="{% static 'style.css' %}" rel="stylesheet">
+<!-- THEME TYPO -->
+<link href="{% static 'css\themetypo.css' %}" rel="stylesheet">
+<!-- BOOTSTRAP -->
+<link href="{% static 'css\bootstrap.css' %}" rel="stylesheet">
+<!-- COLOR FILE -->
+<link href="{% static 'css\color.css' %}" rel="stylesheet">
+<!-- FONT AWESOME -->
+<link href="{% static 'css\font-awesome.min.css' %}" rel="stylesheet">
+<!-- BX SLIDER -->
+<link href="{% static 'css\jquery.bxslider.css' %}" rel="stylesheet">
+<!-- BX SLIDER -->
+<link href="{% static 'js\dl-menu\component.css' %}" rel="stylesheet">
+<link href="{% static 'css\bootstrap-slider.css' %}" rel="stylesheet">
+<!-- BX SLIDER -->
+<link href="{% static 'css\owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'css\responsive.css' %}" rel="stylesheet">
+<link href="{% static 'css\widget.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+
+
+</head>
+<body>
+<!--WRAPPER START-->
+<div class="wrapper">
+	<!--HEADER START-->
+	<header class="header-2">
+    	<!--NAV CONTAINER START-->
+    	<div class="nav-container">
+        	<div class="container">
+            	<!--LOGO START-->
+            	<div class="logo">
+                	<img src="{% static 'images\logo-2.png' %}" alt="">
+                </div>
+                <!--LOGOEND-->
+                <!--NAVIGATION CONTENT START-->
+                <div class="nav-content">
+                	<!--NAVIGATION START-->
+                    <div id="kode-responsive-navigation" class="dl-menuwrapper">
+						<button class="dl-trigger">Open Menu</button>
+						<ul class="dl-menu">
+							<li><a href="/">Home</a></li>
+                            <!-- <li><a href="contact-us.html">Contact Us</a></li> -->
+                        </ul>
+					</div>
+                	<!--NAVIGATION START-->
+                    <div class="navigation">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="navigation">
+                        <ul>
+                            <li><a href="/about">About</a></li>
+                        </ul>
+                    </div>
+                    
+                     {% if profile.Ocuupation == 'Doctor' %}
+<div class="kode-donate-now">
+                        <a href="/allpatients"><i class="fa fa-users"></i>All Patients</a>
+                    </div>
+
+<div  class="kode-donate-now" >
+                        <a href="#"><i class="fa fa-user"></i>User :  {{ user.username}}</a>
+                    </div>
+
+                    <div class="kode-donate-now">
+                        <a href="#"><i class="fa fa-stethoscope"></i>Occupation :  Doctor</a>
+                    </div>
+
+<div class="kode-donate-now">
+                        <a href="{% url 'logout' %}"><i class="fa fa-unlock"></i>Log out </a>
+                    </div>
+                    {% elif profile.Ocuupation == 'Patient' %}
+<div  class="kode-donate-now" >
+                        <a href="#"><i class="fa fa-user"></i>User :  {{ user.username}}</a>
+                    </div>
+
+                    <div class="kode-donate-now">
+                        <a href="#"><i class="fa fa-stethoscope"></i>Occupation :  Patient</a>
+                    </div>
+
+<div class="kode-donate-now">
+                        <a href="{% url 'logout' %}"><i class="fa fa-unlock"></i>Log out </a>
+                    </div>
+
+                    {% elif profile.Ocuupation == 'admin' %}
+                                         <div class="kode-donate-now">
+                        <a href="/allusers"><i class="fa fa-users"></i>All User</a>
+                    </div>
+<div  class="kode-donate-now" >
+                        <a href="#"><i class="fa fa-user"></i>User :  {{ user.username}}</a>
+                    </div>
+
+                    <div class="kode-donate-now">
+                        <a href="#"><i class="fa fa-user"></i>Super User</a>
+                    </div>
+
+<div class="kode-donate-now">
+                        <a href="{% url 'logout' %}"><i class="fa fa-unlock"></i>Log out </a>
+                    </div>
+
+ {% else %}
+<div class="kode-donate-now">
+                        <a href="{% url 'login' %}"><i class="fa fa-lock"></i>Login</a>
+                    </div>
+
+<div class="kode-donate-now">
+                        <a href="/signup"><i class="fa fa-users"></i>Register</a>
+                    </div>
+{% endif %}
+                </div>
+                <!--NAVIGATION CONTENT END-->
+            </div>
+        </div>
+        <!--NAV CONTAINER END-->
+    </header>
+ 
